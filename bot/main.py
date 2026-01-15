@@ -1,6 +1,8 @@
 from pyrogram import Client
 from core.config import Config
 from bot.panel import register_panel
+from bot.update import register_update
+
 
 app = Client(
     "control-bot",
