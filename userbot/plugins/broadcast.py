@@ -40,8 +40,14 @@ async def broadcast_all(client, message):
 
     async for dialog in client.get_dialogs():
         chat = dialog.chat
-        if not (chat.is_private or chat.is_group or chat.is_supergroup):
-            continue
+        from pyrogram.enums import ChatType
+
+if chat.type not in (
+    ChatType.PRIVATE,
+    ChatType.GROUP,
+    ChatType.SUPERGROUP
+):
+    continue
 
         total += 1
         try:
